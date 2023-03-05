@@ -2,21 +2,37 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-
+import { useState } from "react";
 import HomeScreen from './screens/HomeScreen';
-import ProfileScreen from './screens/ProfileScreen';
-import spaceTraders from './screens/SpaceTraders';
-import LoginScreen from './screens/LoginScreen';
-
+import LoanScreen from './screens/LoanScreen';
+import ShipScreen from './screens/ShipScreen';
+import RegisterScreen from './screens/Login/RegisterScreen';
+import LoginScreen from './screens/Login/LoginScreen';
+import SiginScreen from './screens/Login/SiginScreen';
 const Drawer = createDrawerNavigator();
 
 export default function App() {
+
+  const [signIn, setSignIn] = useState({});
   return (
+    Object.entries(signIn).length === 0
+    ?
     <NavigationContainer>
       <Drawer.Navigator initialRouteName='Login'>
-        <Drawer.Screen name='Login' component={LoginScreen}/>
-        <Drawer.Screen name='Home' component={HomeScreen}/>
-        <Drawer.Screen name='Profile' component={ProfileScreen}/>
+        <Drawer.Screen name='Login' component={LoginScreen} options={{headerShown: false}} />
+        <Drawer.Screen name='signIn' options={{headerShown: false}}>
+          {() => <SiginScreen setSignIn={setSignIn} />}
+        </Drawer.Screen>
+        <Drawer.Screen name='Register' component={RegisterScreen} options={{ headerShown: false }} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+    :
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName='Home'>
+        <Drawer.Screen name='Home' component={HomeScreen} />
+        <Drawer.Screen name='Loan' component={LoanScreen} />
+        <Drawer.Screen name='Ships' component={ShipScreen} />
+        <Drawer.Screen name='Login' component={LoginScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

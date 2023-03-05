@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react"
 import { View, Text } from "react-native"
-import { getUserProfile } from "../services/spaceTraders";
+import spaceTraders  from "../services/spaceTraders"
 
 function HomeScreen() {
 
-    const [profile, setProfile] = useState(null)
+    const [profile, setProfile] = useState();
 
     useEffect(() => {
         const fetcUserAccount = async () => {
-            const userProfile = await getUserProfile()
-            console.log(userProfile)
-            setProfile(userProfile)
+            const userProfile = await spaceTraders.getUserProfile();
+            setProfile(userProfile);
         }
 
 
@@ -21,6 +20,18 @@ function HomeScreen() {
         <View>
             {
                 profile ? <Text> username {profile.user.username} </Text> : <Text>Loading ...</Text>
+            }
+            {
+                profile ? <Text> Número de naves: {profile.user.shipCount} </Text> : <Text>Loading ...</Text>
+            }
+            {
+                profile ? <Text> numero de estructuras: {profile.user.structureCount} </Text> : <Text>Loading ...</Text>
+            }
+            {
+                profile ? <Text> Creditos: {profile.user.credits} </Text> : <Text>Loading ...</Text>
+            }
+            {
+                profile ? <Text> Se unio en:  {profile.user.joinedAt} </Text> : <Text>Loading ...</Text>
             }
             
         </View>

@@ -1,19 +1,17 @@
 import * as credentials from '../credentials.json'
 
-const endPoinsts = {
-    userProfie: `https://api.spacetraders.io/my/account?token="980c66ae-9c79-4711-a1b8-10c12291c51b`,
+const endpoints = {
+    userProfile: `https://api.spacetraders.io/my/account?token=980c66ae-9c79-4711-a1b8-10c12291c51b`,
     newUser : `https://api.spacetraders.io/users/:username/claim`
 }
-
-export const getUserProfile = async () => {
+const getUserProfile = async () => {
 
     try {
-        console.log("Estoy pidiendo los datos")
 
-        const response = await fetch(endPoinsts.userProfie)
+        const response = await fetch(endpoints.userProfile)
         const data = await response.json();
 
-        console.log(data)
+        return(data)
 
         return data
     } catch (error) {
@@ -21,4 +19,8 @@ export const getUserProfile = async () => {
         return {}
     }
     
+}
+
+export default{
+    getUserProfile
 }
