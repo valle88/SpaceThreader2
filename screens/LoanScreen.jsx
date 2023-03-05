@@ -1,10 +1,11 @@
 import React from 'react'
+import { View, Text } from 'react-native'
 
 const LoanScreen = () => {
   return (
-    <div>
-      
-    </div>
+    <View>
+      <Text>hola</Text>
+    </View>
   )
 }
 

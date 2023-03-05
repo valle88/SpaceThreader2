@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { View, Text } from "react-native"
-import spaceTradersServices from "../services/spaceTradersServices";
+import spaceTraders  from "../services/spaceTraders"
 
 function HomeScreen() {
 
@@ -8,7 +8,7 @@ function HomeScreen() {
 
     useEffect(() => {
         const fetcUserAccount = async () => {
-            const userProfile = await spaceTradersServices.getUserProfile();
+            const userProfile = await spaceTraders.getUserProfile();
             setProfile(userProfile);
         }
 

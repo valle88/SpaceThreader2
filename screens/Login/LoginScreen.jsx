@@ -1,16 +1,16 @@
 import React from 'react'
 import { Pressable, View, Text, StyleSheet } from 'react-native'
-import { useState } from 'react'
+
 
 
 const LoginScreen = ({navigation}) => {
    
   return (
     <View style={styles.container} >
-        <Pressable style={styles.login}  onPress={()=>navigation.navigate('LoginScreen')}>
+        <Pressable style={styles.login}  onPress={()=>navigation.navigate('signIn')}>
             <Text>Login</Text>
         </Pressable>
-        <Pressable style={styles.register} >
+        <Pressable style={styles.register} onPress={() => navigation.navigate('Register')} >
             <Text>Register</Text>
         </Pressable>
     </View>
@@ -27,14 +27,19 @@ const styles = StyleSheet.create({
     },
 
     login:{
+        marginTop: 230,
         margin: 10,
         padding: 10,
-        backgroundColor: 'red',
+        alignContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#9932CC',
+        borderRadius: 10,
     },
     register:{
         margin: 10,
         padding: 10,
-        backgroundColor: 'blue',
+        backgroundColor: '#00FF7F',
+        borderRadius: 10,
     }
 })
 
