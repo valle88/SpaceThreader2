@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, Image } from "react-native"
 import { getUserProfile } from "../services/spaceTraders"
 
 function HomeScreen() {
@@ -18,6 +18,11 @@ function HomeScreen() {
 
     return (
         <View style={styles.container}>
+            <Image
+                source={require('../assets/avatar.png')}
+                style={styles.img}
+            />
+
             {
                 profile ? <Text> username {profile.user.username} </Text> : <Text>Loading ...</Text>
             }
@@ -30,9 +35,7 @@ function HomeScreen() {
             {
                 profile ? <Text> Creditos: {profile.user.credits} </Text> : <Text>Loading ...</Text>
             }
-            {
-                profile ? <Text> Se unio en:  {profile.user.joinedAt} </Text> : <Text>Loading ...</Text>
-            }
+
 
         </View>
     )
@@ -41,8 +44,13 @@ function HomeScreen() {
 }
 const styles = StyleSheet.create({
     container: {
+        alignItems: 'center',
         width: '100%',
         marginTop: 30
+    },
+    img:{
+        width: '50%',
+        height:'50%'
     }
 });
 

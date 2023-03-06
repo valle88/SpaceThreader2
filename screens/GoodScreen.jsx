@@ -16,7 +16,7 @@ const GoodScreen = ({userToken}) => {
     }, [])
   return (
     <View style={styles.container}>
-      <FlatList data={good} renderItem={(item)=>{
+      <FlatList style={styles.flait} data={good} renderItem={(item)=>{
         return(
             <GoodView
             key={item.index}
@@ -32,6 +32,9 @@ const GoodScreen = ({userToken}) => {
 const styles = StyleSheet.create({
     container:{
         with: '100%'
+    },
+    flait:{
+        margin: 10
     }
 })
 
