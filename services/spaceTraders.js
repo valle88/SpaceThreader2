@@ -21,6 +21,29 @@ const getUserProfile = async () => {
     
 }
 
-export default{
-    getUserProfile
+
+const getRequestLoans = async ( token ) =>{
+    try{
+       const response = await fetch(`http://api.spacetraders.io/types/loans/?token=${token}`)
+       const data = await response.json()
+       console.log(data)
+       return data.loans
+    }catch(err){
+        console.log(err);
+    }
+}
+const getRequestGood= async()=>{
+    try {
+        const response = await fetch('https://api.spacetraders.io/types/goods')
+        const data = await response.json()
+        console.log(data)
+        return data.good
+    } catch (err) {
+        
+    }
+}
+export{
+    getUserProfile,
+    getRequestLoans,
+    getRequestGood
 }

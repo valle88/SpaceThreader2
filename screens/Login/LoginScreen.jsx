@@ -2,9 +2,8 @@ import React from 'react'
 import { Pressable, View, Text, StyleSheet } from 'react-native'
 
 
-
 const LoginScreen = ({navigation}) => {
-   
+  
   return (
     <View style={styles.container} >
         <Pressable style={styles.login}  onPress={()=>navigation.navigate('signIn')}>
