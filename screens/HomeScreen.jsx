@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { View, Text } from "react-native"
-import spaceTraders  from "../services/spaceTraders"
+import { View, Text, StyleSheet } from "react-native"
+import { getUserProfile } from "../services/spaceTraders"
 
 function HomeScreen() {
 
@@ -8,16 +8,16 @@ function HomeScreen() {
 
     useEffect(() => {
         const fetcUserAccount = async () => {
-            const userProfile = await spaceTraders.getUserProfile();
+
+            const userProfile = await getUserProfile();
             setProfile(userProfile);
         }
-
 
         fetcUserAccount()
     }, []);
 
     return (
-        <View>
+        <View style={styles.container}>
             {
                 profile ? <Text> username {profile.user.username} </Text> : <Text>Loading ...</Text>
             }
@@ -33,11 +33,17 @@ function HomeScreen() {
             {
                 profile ? <Text> Se unio en:  {profile.user.joinedAt} </Text> : <Text>Loading ...</Text>
             }
-            
+
         </View>
     )
 
-    /* Interfaz grafica que se vea bonito y servidor el punto verde y rojo */
+
 }
+const styles = StyleSheet.create({
+    container: {
+        width: '100%',
+        marginTop: 30
+    }
+});
 
 export default HomeScreen

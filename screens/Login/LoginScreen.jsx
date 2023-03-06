@@ -1,15 +1,15 @@
 import React from 'react'
 import { Pressable, View, Text, StyleSheet } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
-
-const LoginScreen = ({navigation}) => {
-  
+const LoginScreen = () => {
+  const navigate = useNavigation()
   return (
     <View style={styles.container} >
-        <Pressable style={styles.login}  onPress={()=>navigation.navigate('signIn')}>
+        <Pressable style={styles.login} onPress={()=>navigate.navigate('SignIn')}>
             <Text>Login</Text>
         </Pressable>
-        <Pressable style={styles.register} onPress={() => navigation.navigate('Register')} >
+        <Pressable style={styles.register} onPress={() => navigate.navigate('Register')} >
             <Text>Register</Text>
         </Pressable>
     </View>

@@ -1,26 +1,26 @@
 
-import {Text, View, Pressable, StyleSheet} from 'react-native'
+import { Text, View, Pressable, StyleSheet } from 'react-native'
 import { useEffect } from 'react'
 
-const GooView =({good})=>{
-    useEffect(()=>{
-        console.log(good)    
-    },[])
-
-    return(
+const GoodView = ({ good }) => {
+    useEffect(() => {
+    }, [])
+    return (
         <View>
             <View>
                 <Text>
-                name: {good.name}
+                    name: {good.name}
                 </Text>
                 <Text>
-                symbol: {good.symmbol}
+                    symbol: {good.symmbol}
                 </Text>
                 <Text>
-                volumePerUnit: {good.volumePerUnit}
+                    volumePerUnit: {good.volumePerUnit}
                 </Text>
             </View>
         </View>
     )
 }
 
+
+export default GoodView

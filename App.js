@@ -13,7 +13,7 @@ const Drawer = createDrawerNavigator();
 
 export default function App() {
 
-  const [signIn, setSignIn] = useState(['dsahds']);
+  const [signIn, setSignIn] = useState('');
   const [token, setToken] = useState('')
   return (
     <>
@@ -22,11 +22,11 @@ export default function App() {
       ?
       <NavigationContainer>
         <Drawer.Navigator initialRouteName='Login'>
-          <Drawer.Screen name='Login' component={LoginScreen} options={{headerShown: false}}/>
-          <Drawer.Screen name='signIn'>
-            {() => <SiginScreen setSignIn={setSignIn} />}
+          <Drawer.Screen name='Login' component={LoginScreen} options={{headerShown: false}  }/>
+          <Drawer.Screen name='SignIn'>
+            {() => <SiginScreen setSignIn={setSignIn}/>}
           </Drawer.Screen>
-          <Drawer.Screen name='Register' component={RegisterScreen} options={{ headerShown: false }} />
+          <Drawer.Screen name='Register' component={RegisterScreen} options={{ headerShown: false}} />
         </Drawer.Navigator>
       </NavigationContainer>
       :
@@ -39,7 +39,6 @@ export default function App() {
           <Drawer.Screen name='Good'>
             {()=> <GoodScreen userToken={token} />}
           </Drawer.Screen>
-          <Drawer.Screen name='Login' component={LoginScreen} />
         </Drawer.Navigator>
       </NavigationContainer>
     

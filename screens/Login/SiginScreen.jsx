@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, TextInput, Pressable, StyleSheet  } from 'react-native'
 import { useState } from "react";
-import spaceTraders from '../../services/spaceTraders';
+import {getUserProfile} from '../../services/spaceTraders';
 
 const SiginScreen = ({setSignIn}) => {
 
@@ -9,12 +9,14 @@ const SiginScreen = ({setSignIn}) => {
 
   const Login = async () => {
     try{
-      const userProfile = await spaceTraders.getUserProfile();
-      setSignIn(userProfile);
+      
+      const userProfile = await getUserProfile() 
+      setSignIn(userProfile)
 
-      alert(`User: ${userProfile.user.username}\nwell authenticated`)
+  
 
     } catch(err) {
+      
       console.log(err.message);
     }
   }
